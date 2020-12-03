@@ -1,6 +1,8 @@
 from flask import Flask, render_template, Response, request, jsonify, url_for
 from random import randint
 from datetime import datetime
+import os.path
+from os import path
 
 app = Flask(__name__)
 
@@ -8,10 +10,11 @@ app = Flask(__name__)
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-# This won't work unless you have valid credentials file
-credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"])
-client = gspread.authorize(credential)
-gsheet = client.open("Healthcare Form Log").sheet1
+if path.exists("static/credentials.json"):
+    # This won't work unless you have valid credentials file
+    credential = ServiceAccountCredentials.from_json_keyfile_name("static/credentials.json", ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"])
+    client = gspread.authorize(credential)
+    gsheet = client.open("Healthcare Form Log").sheet1
 
 @app.route('/')
 def index():
@@ -51,11 +54,12 @@ def review():
 
 @app.route('/success')
 def success():
-    # Converting to Google Sheets
-    patient_id = randint(1000000, 9999999)
-    patient_dt = datetime.now().strftime("%d/%m/%Y %I:%M:%S")
-    row = [patient_id, patient_dt, 'John','Smith','01/01/1984','111111111','500 Lexington Street, New York, New York, 10027', 'Y', 'Y']
-    gsheet.insert_row(row,2)
+    if path.exists("static/credentials.json"):
+        # Converting to Google Sheets
+        patient_id = randint(1000000, 9999999)
+        patient_dt = datetime.now().strftime("%d/%m/%Y %I:%M:%S")
+        row = [patient_id, patient_dt, 'John','Smith','01/01/1984','111111111','500 Lexington Street, New York, New York, 10027', 'Y', 'Y']
+        gsheet.insert_row(row,2)
     return(render_template("success.html", toggle_help=True))
 
 if __name__ == '__main__':
