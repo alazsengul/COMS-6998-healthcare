@@ -56,7 +56,6 @@ def success():
     patient_dt = datetime.now().strftime("%d/%m/%Y %I:%M:%S")
     row = [patient_id, patient_dt, 'John','Smith','01/01/1984','111111111','500 Lexington Street, New York, New York, 10027', 'Y', 'Y']
     gsheet.insert_row(row,2)
-    gsheet.update_cells
     return(render_template("success.html", toggle_help=True))
 
 if __name__ == '__main__':
