@@ -42,6 +42,12 @@ def review():
 def success():
     return(render_template("success.html", toggle_help=True))
 
+@app.route('/dashboard')
+def dashboard():
+    return(render_template("dashboard.html", toggle_help=True))
+
+
+
 if __name__ == '__main__':
 
     app.run(debug = True)

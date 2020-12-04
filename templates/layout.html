@@ -26,7 +26,13 @@
                             <div class="md:ml-10 md:pr-4 md:space-x-8">
                                 {% if toggle_help %} <a href="https://www.law.miami.edu/academics/clinics/health-rights-clinic" target="_blank" class="font-medium text-blue-600 hover:text-blue-500"> Help </a> {% endif %}
                                 {% if not toggle_help %} <a href="https://www.law.miami.edu/academics/clinics/health-rights-clinic" target="_blank" class="font-medium text-blue-600 hover:text-blue-500"> Health Rights Clinic </a> {% endif %}
+
+                                <a href="{{ url_for('.dashboard') }}"
+                                    class="font-medium text-blue-600 hover:text-blue-500"> 
+                                    Dashboard 
+                                </a> 
                             </div>
+
                         </nav>
                     </div>
                     
