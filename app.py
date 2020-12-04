@@ -64,26 +64,9 @@ def success():
 
 @app.route('/dashboard')
 def dashboard():
-    data = {
-        'ID' : '9485746325',
-        'first_name' : 'John',
-        'last_name' : 'Smith',
-        'dob' : '01/01/1984',
-        'ssn' : '9485746325',
-        'address' : '500 Lexington Street',
-        'working' : 'Yes',
-        'health_problems' : 'Yes'
-    }
+    data = {}
     if path.exists("static/credentials.json"):
-        row = gsheet.row_values(2)
-        data['ID'] = row[0]
-        data['first_name'] = row[2]
-        data['last_name'] = row[3]
-        data['dob'] = row[4]
-        data['ssn'] = row[5]
-        data['address'] = row[6]
-        data['working'] = row[7]
-        data['health_problems'] = row[8]
+        data = gsheet.get_all_records()
  
     return(render_template("dashboard.html", toggle_help=True, data=data))
 
