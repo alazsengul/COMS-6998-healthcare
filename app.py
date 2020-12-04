@@ -58,7 +58,7 @@ def success():
         # Converting to Google Sheets
         patient_id = randint(1000000, 9999999)
         patient_dt = datetime.now().strftime("%d/%m/%Y %I:%M:%S")
-        row = [patient_id, patient_dt, 'John','Smith','01/01/1984','9485746325','500 Lexington Street, New York, New York, 10027', 'Y', 'Y']
+        row = ['29384', patient_dt, 'John','Smith','03/18/1983','435-32-6776','37 Shaolin Ave', 'Yes', 'Yes']
         gsheet.insert_row(row,2)
     return(render_template("success.html", toggle_help=True))
 
