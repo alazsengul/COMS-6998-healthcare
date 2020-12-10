@@ -3,6 +3,17 @@
 {% block body %}
 
 <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+
+            <div class="text-right mb-8">
+                <p class="text-sm tracking-tight font-normal text-gray-900 sm:text-2sm sm:max-w-2sm sm:mx-auto md:text3sm">
+                    <span class="block">Progress</span>
+                </p>
+                <div class="h-3 relative max-w-xl rounded-full overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 absolute"></div>
+                    <div class="h-full bg-green-400 absolute" style="width:100%"></div>
+                </div>
+            </div>
+
     <div class="text-left">
         <h1 class="text-xl tracking-tight font-extrabold text-gray-900 sm:text-2xl sm:max-w-2xl sm:mx-auto md:text3xl">
             <span class="block">Do you have any health problems or disabilities?</span>
@@ -24,12 +35,12 @@
         
         <div class="mt-5 sm:mt-8 sm:flex sm:max-w-2xl sm:mx-auto">
             <div class="order-2 mt-3 mb-3 sm:mt-0 sm:ml-3 sm:w-1/2">
-                <a href="{{ url_for('.review') }}" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
+                <a href="{{ url_for('.review') }}" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-full text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
                     Continue
                 </a>
             </div>
             <div class="order-1 sm:w-1/2">
-                <a href="{{ url_for('.question6') }}" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10">
+                <a href="{{ url_for('.question6') }}" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-bold rounded-full text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10">
                     Back
                 </a>
             </div>
