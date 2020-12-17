@@ -10,14 +10,19 @@
     },
     {
       "version": "0.1.0",
-      "command": "Chrome",
+      "command": "chrome",
       "label": "chrome",
       "windows": {
-        "command": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+        "command": "chrome.exe"
       },
       "args": [
         "${file}"
-      ]
+      ],
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }
